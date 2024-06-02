@@ -1,0 +1,47 @@
+class uber{
+
+    constructor(userName, boardingPoint, destination, distance=0){
+        this.userName= userName;
+        this.boardingPoint= boardingPoint;
+        this.destination= destination;
+        this.distance= distance;
+    }
+    get price(){
+        let finalPrice=0;
+        let uberprice= function(thisdistance){
+            
+            let priceArray={
+                "0-2 km" : "30 /km",
+                "2-5 km" : "20 /km",
+                "5-10 km" : "15 /km",
+                "10-20 km" : "12 /km",
+                "20-50 km" : "10 /km",
+                "50-100 km" : "8 /km",
+                "100-500 km" : "7 /km",
+                "500-1000 km" : "6 /km"
+            }
+            let priceKilometre= Object.keys(priceArray);
+            //let km=priceKilometre[0].split(" ");
+            let i=0;
+           while(thisdistance!=0 && i<priceKilometre.length){
+            let kilometreRange=(priceKilometre[i].split("-"))
+            let kilometreCount=(parseInt(kilometreRange[1]))-kilometreRange[0]
+            //console.log(kilometreCount);
+            for(let j=1; j<= kilometreCount; j++){
+            thisdistance -= 1;
+            finalPrice += (parseInt(priceArray[priceKilometre[i]]));
+           // console.log(parseInt(priceArray[priceKilometre[i]]));
+            if(thisdistance ==0){
+                break;
+            }
+            }
+            i++;
+           }
+          
+        }
+        uberprice(this.distance);
+        return finalPrice;
+    }
+}
+let new1=new uber("subash","karur","thoothukudi",317);
+console.log(new1.price);

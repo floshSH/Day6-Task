@@ -1,0 +1,39 @@
+class circle{
+    constructor(radious= 1.0, color= "red"){
+        this.radious=radious;
+        this.color=color;
+    }
+  get circleRadious(){
+   return this.radious;
+   
+}
+set newRadious(newRadious1) {
+        this.radious = newRadious1;
+}
+get area(){
+    return 3.14 * (this.radious) * (this.radious) ;
+}
+get circleColor(){
+    return this.color;
+}
+get circumference(){
+    return 2*3.14*(this.radious);
+}
+static toString(obj){
+    return obj;
+    //return `radious=${this.radious}, color=${this.color}`;
+}
+}
+ let case1=new circle();
+ let case2=new circle(6.0);
+ let case3= new circle(8.0, "blue");
+ 
+ console.log(case3.circleRadious);
+ case2.newRadious= 7.5;
+console.log(case2.circleRadious);
+console.log(case2.circleColor);
+case3.newColor="Yellow";
+console.log(case3.circleColor);
+console.log(circle.toString(case1))
+console.log(case2.area);
+console.log(case3.circumference);

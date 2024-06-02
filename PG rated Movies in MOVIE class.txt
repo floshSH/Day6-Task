@@ -1,0 +1,27 @@
+class movie{
+    constructor(title, studio, rating="PG"){
+        this.title=title;
+        this.studio= studio;
+        this.rating= rating;
+        
+    }
+   static getPG(arr){
+    let arrayPG=[];
+    for( let value of arr){
+       for(let key in value){
+        if(value[key] === "PG"){
+            arrayPG.push(value);
+        }
+       }
+    }
+   
+   return arrayPG;
+    }
+}
+let movie1=[];
+movie1.push( new movie("thalapathy69", "aghoram"))
+movie1.push(new movie("goat", "sunPictures", "PG13"))
+movie1.push(new movie("leo", "7Screen", "PG"))
+
+//console.log(movie1)
+console.log(movie.getPG(movie1));
